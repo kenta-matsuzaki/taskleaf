@@ -1,0 +1,20 @@
+@import "bootstrap";
+@import './sessions';
+@import './tasks';
+
+* {
+  background: url("664216c1.webp") fixed;
+  background-size: cover;
+}
+.navbar-brand {
+  font-size: 80px;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-top: -15px;
+}
+
+
+// .container {
+//   background: url("664216c1.webp") fixed;
+//   background-size: cover;
+// }
