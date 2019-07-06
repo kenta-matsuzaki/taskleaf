@@ -13,25 +13,19 @@ h1 タスク一覧
     = f.submit class: 'btn btn-outline-primary'
 
 = link_to '新規登録', new_task_path, class: 'btn btn-primary'
-javascript:
-  $("h1").on("mouseover", function(){
-    $(this).css({"color": "red", "font-weight": "bold"});
-  }).on("mouseout", function(){
-     $(this).css({"color": "black", "font-weight": "normal"});
-  });
 
 .mb-3
 table.table.tabele-hover
   thead.thead-default
     tr
-      th 内容
-      th 更新日時
+      th = sort_link(@q, 'タスク名')
+      th = Task.human_attribute_name(:created_at)
       th
   tbody
-    - @tasks.each do |task|
+    - @tasks.each do |task| 
       tr
         td= link_to task.name, task_path(task)
-        td= task.created_at
+        td= task.created_at.strftime("%Y/%m/%d %H:%M")
         td
           = link_to '編集', edit_task_path(task), class: 'btn btn-primary mr-3'
           = link_to '削除', task, method: :delete, data: { confirm: "タスク「#{task.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger'
